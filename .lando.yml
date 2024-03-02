@@ -1,0 +1,85 @@
+###
+# If you would like to use lando for local development edit this file
+# and copy it to .lando.yml in the root of your Laravel project.
+####
+
+# Change this to your app name.
+name: demo-app
+recipe: laravel
+
+config:
+  webroot: public
+  database: mariadb:10.3
+  php: '8.2'
+  via: nginx:1.17
+  xdebug: debug
+
+env_file:
+  - .env
+
+proxy:
+  # Chane this URL to match YOUR_APP_NAME.
+  appserver_nginx:
+    - demo-app.test
+  # Chane this URL to match YOUR_APP_NAME.
+  mailhog:
+    - mail.demo-app.test
+##
+# Caveat: to install new dependencies preface commansds w/ lando, i.e.
+#   `lando npm install BLAH`
+#   `lando composer require BAR`
+#
+# @see https://docs.lando.dev/config/performance.html#configuration
+##
+excludes:
+  - vendor
+  - node_modules
+
+services:
+  appserver:
+    composer_version: '2.2.12'
+    ssl: true
+    sslExpose: true
+    build:
+      - composer install
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+    ####
+    # The .vscode dir is gitignored so get this file from a teamate or;
+    # https://gist.github.com/MatthieuScarset/0c3860def9ff1f0b84e32f618c740655
+    ####
+    #config:
+    #  php: .vscode/php.ini
+
+  mailhog:
+    type: mailhog:v1.0.0
+    portforward: true
+    hogfrom:
+      - appserver
+
+  node:
+    type: node:16
+    build:
+      - npm install
+      - npm run dev
+
+tooling:
+  yarn:
+    service: node
+    cmd: yarn
+  npm:
+    service: node
+    cmd: npm
+  watch:
+    service: node
+    cmd: npm run watch
+  check:
+    service: appserver
+    description: Check php code standards
+    cmd: /app/vendor/bin/ecs check
+  test:
+    service: appserver
+    description: Run php unit tests
+    cmd: /app/vendor/bin/phpunit --stop-on-failure --testsuite Feature
