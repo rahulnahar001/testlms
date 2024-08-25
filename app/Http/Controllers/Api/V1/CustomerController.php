@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CustomerResource;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class CustomerController extends Controller
 {
@@ -37,19 +38,18 @@ class CustomerController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCustomerRequest $request, Customer $customer)
+    public function update(StoreCustomerRequest $request, Customer $customer)
     {
-        //
+
+        try {
+            $customer->update($request->validated());
+        } catch (\Exception $e) {
+            throw new HttpException(500, $e->getMessage());
+        }
+
+        return CustomerResource::make($customer);
     }
 
     /**

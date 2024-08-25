@@ -24,7 +24,7 @@ class StoreCustomerRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'mail' => 'email',
-            'phone' => 'required|unique:customers|numeric|digits_between:9,11',
+            'phone' => 'required|numeric|digits_between:9,11',
             'address' => 'string',
             'credit_balance' => 'numeric'
         ];
