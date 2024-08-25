@@ -63,7 +63,7 @@ services:
     type: node:16
     build:
       - npm install
-      - npm run dev
+      # - npm run dev
 
 tooling:
   yarn:
