@@ -32,8 +32,12 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show($id)
     {
+
+        $customer = Customer::with('casebooks')->findOrFail($id);
+
+        return response()->json($customer);
         return CustomerResource::make($customer);
     }
 
