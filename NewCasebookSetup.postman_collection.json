@@ -1,0 +1,1065 @@
+{
+	"info": {
+		"_postman_id": "5d877524-500f-45e5-a2d5-640bdcccb089",
+		"name": "NewCasebookSetup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33347978"
+	},
+	"item": [
+		{
+			"name": "Fetch Customers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "XSRF-TOKEN=eyJpdiI6IjY2clpIejJhaTlhNVRyQTk3UllnaWc9PSIsInZhbHVlIjoic1NHQk5Iem9NYVJJRVhHbzUxWmdUVHZ5eDZzWFhWRTJLcm1rdDgwbHZkeE90NFpETU1EQjdwUGJkcHFKTW5Rc1RRZ3JzZHhDYWZBTktRcHl5N293VWJNYXl5SjlGOTQ4b2hFczBWN04raVAzbVc2UUV5cmNSaUFGYU0zb3hqb1IiLCJtYWMiOiI1YjA4NWI4YzJjZmRlYWFjYTMyMWViMDIxNjM2ODcyYmFlMGQ0YjdjZjQ0NmM1NzFhZDViNWM2Yzg5MDAyYmJkIiwidGFnIjoiIn0%3D; lmslocal_session=eyJpdiI6IlBldWlvTVptcmwyVFB2NWVmU1FQYlE9PSIsInZhbHVlIjoiSjB0S3Jzam5CSDN5U01QbkVDS0hrMStPbjhHRlNqT2hnMk03QXNVeUdUV1hXYVVyQWpsNXVsdTlGK3lMeTlUWFVXaURwU2ZDdzNTVkdtZ0lpM0RSL0VBb0RxMWpsWis1Q2JxRlJlbmZmNStYckJVNzVnd3VEOWJ1TW96WWJxNTkiLCJtYWMiOiJmZmU0MzFiYjUzYjc0N2E3NGJkODNlOTY0OTkwZTIwMmU3OTFjYTU2MWUyN2QyOTgwMzU0YWViOWExZTAxZjJlIiwidGFnIjoiIn0%3D",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "referer",
+						"value": "localhost",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{apilink}}api/v1/customers",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Casebook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "XSRF-TOKEN=eyJpdiI6IjY2clpIejJhaTlhNVRyQTk3UllnaWc9PSIsInZhbHVlIjoic1NHQk5Iem9NYVJJRVhHbzUxWmdUVHZ5eDZzWFhWRTJLcm1rdDgwbHZkeE90NFpETU1EQjdwUGJkcHFKTW5Rc1RRZ3JzZHhDYWZBTktRcHl5N293VWJNYXl5SjlGOTQ4b2hFczBWN04raVAzbVc2UUV5cmNSaUFGYU0zb3hqb1IiLCJtYWMiOiI1YjA4NWI4YzJjZmRlYWFjYTMyMWViMDIxNjM2ODcyYmFlMGQ0YjdjZjQ0NmM1NzFhZDViNWM2Yzg5MDAyYmJkIiwidGFnIjoiIn0%3D; lmslocal_session=eyJpdiI6IlBldWlvTVptcmwyVFB2NWVmU1FQYlE9PSIsInZhbHVlIjoiSjB0S3Jzam5CSDN5U01QbkVDS0hrMStPbjhHRlNqT2hnMk03QXNVeUdUV1hXYVVyQWpsNXVsdTlGK3lMeTlUWFVXaURwU2ZDdzNTVkdtZ0lpM0RSL0VBb0RxMWpsWis1Q2JxRlJlbmZmNStYckJVNzVnd3VEOWJ1TW96WWJxNTkiLCJtYWMiOiJmZmU0MzFiYjUzYjc0N2E3NGJkODNlOTY0OTkwZTIwMmU3OTFjYTU2MWUyN2QyOTgwMzU0YWViOWExZTAxZjJlIiwidGFnIjoiIn0%3D",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "referer",
+						"value": "localhost",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{apilink}}api/v1/casebooks",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"v1",
+						"casebooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch a Customer details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{apilink}}api/v1/customers/5",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a Customer details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"name": "authorization",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "rahul",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "rahu@d.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "739992222",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "ddd",
+							"type": "text"
+						},
+						{
+							"key": "credit_balance",
+							"value": "2233",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{apilink}}api/v1/customers",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Customer details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data; boundary=<calculated when request is sent>",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "rahulnahar",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "12333333333",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Brekke Mountains",
+							"type": "text"
+						},
+						{
+							"key": "credit_balance",
+							"value": "-222",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{apilink}}api/v1/customers/1",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"v1",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"https://localhost:49480/sanctum/csrf-cookie\",",
+							"    method: \"GET\"",
+							"}, function (err, res, { cookies }) {",
+							"    if (!err) {",
+							"        pm.globals.set('csrf-token', cookies.get('XSRF-TOKEN'))",
+							"    }",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{{csrf-token}}",
+						"type": "text"
+					},
+					{
+						"key": "referer",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rahul.nahar001@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:49480/auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "49480",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false,
+				"disableUrlEncoding": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{{csrf-token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rahul.nahar001@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{apilink}}api/auth/login",
+					"host": [
+						"{{apilink}}api"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current User Details",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "XSRF-TOKEN=eyJpdiI6IjY2clpIejJhaTlhNVRyQTk3UllnaWc9PSIsInZhbHVlIjoic1NHQk5Iem9NYVJJRVhHbzUxWmdUVHZ5eDZzWFhWRTJLcm1rdDgwbHZkeE90NFpETU1EQjdwUGJkcHFKTW5Rc1RRZ3JzZHhDYWZBTktRcHl5N293VWJNYXl5SjlGOTQ4b2hFczBWN04raVAzbVc2UUV5cmNSaUFGYU0zb3hqb1IiLCJtYWMiOiI1YjA4NWI4YzJjZmRlYWFjYTMyMWViMDIxNjM2ODcyYmFlMGQ0YjdjZjQ0NmM1NzFhZDViNWM2Yzg5MDAyYmJkIiwidGFnIjoiIn0%3D; lmslocal_session=eyJpdiI6IlBldWlvTVptcmwyVFB2NWVmU1FQYlE9PSIsInZhbHVlIjoiSjB0S3Jzam5CSDN5U01QbkVDS0hrMStPbjhHRlNqT2hnMk03QXNVeUdUV1hXYVVyQWpsNXVsdTlGK3lMeTlUWFVXaURwU2ZDdzNTVkdtZ0lpM0RSL0VBb0RxMWpsWis1Q2JxRlJlbmZmNStYckJVNzVnd3VEOWJ1TW96WWJxNTkiLCJtYWMiOiJmZmU0MzFiYjUzYjc0N2E3NGJkODNlOTY0OTkwZTIwMmU3OTFjYTU2MWUyN2QyOTgwMzU0YWViOWExZTAxZjJlIiwidGFnIjoiIn0%3D",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{{csrf-token}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "referer",
+						"value": "localhost",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "jlangosh@example.org",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:52443/api/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "52443",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "XSRF-TOKEN=eyJpdiI6InFvRURrMVhNaWtiZ0VGOWM5ZXJYSkE9PSIsInZhbHVlIjoiOUNxOTh0bDA3WHdWL2tKazZnNXJhZDduOGEyd3JqVkdnTnFTaVlrOTVTY0RTOExrNExDa2NrWnE1TjZlaFg5VWxrdm5zNk9peEpjWi9lQ0pycVVTQk5DVFVMRU5RTEVZQWFLNWJyMDBKSTBMU3h4NVFJV0FkaW8veFdQN3pJSEMiLCJtYWMiOiI3NDdkMDdmMWIzNjVjYjIyNzdjZDc2MGNmMzNiNzQ0YTdlMGViNjY2N2YyM2I3NWYwMWNhNzRlYWUxMmZkMTRjIiwidGFnIjoiIn0%3D; lmslocal_session=eyJpdiI6IkRXU3lsSWVHN2FpUC9zRC9mZjdKZmc9PSIsInZhbHVlIjoiTmhDZDMrNDZoMUxjbzBjalFwSm0xdmRlSGZSeWYwUXpIM0g5NWJlQ0t0YjBPbDRUTmU2K3JNMlNjTlRSNzJmT1FibDIrY2JzL1pqRzAzTmJVSWs3NG9sSXRCTHZrVElWcms4cnR3WkF2aC9JaHIzRitCY281WGI2OTVIYTZsay8iLCJtYWMiOiI0ZGUzZTcxN2ZhZDUwNjZiM2U5Nzg5MzA5NGEzNWM2OTlmMWViZjk2Yjc0ZGU1NDlmNGI1ZmI2MmRhZTg2YjU2IiwidGFnIjoiIn0%3D",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"name": "content-type",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "<calculated when request is sent>",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{{csrf-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rahul@example.org",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "rahul",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:60918/auth/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "60918",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "XSRF-TOKEN=eyJpdiI6ImZ2cVRHM1VCalFNTWxIaDJyVWdpYmc9PSIsInZhbHVlIjoiOERqSnNOc1R1ZUtnM3h2YUtiejEzZ3RDeXBSa0EyblhsRnZTdDkyYm5ER1loTmo3anppVExhODlXZlpvOS82ZmRWWDc0cGFldmozVzRKdmYwMDJQbm1Zc2dwNi9mTG1KdlNPR2l2bnpSWGQxdUVNNGdCYmZYNnIxWUFWUzZ2cTAiLCJtYWMiOiJhZjE4MjljY2JhMmZjMGVlM2I0NGExODMzNjY5Mzk5NjkzNWUxNzlkYzllY2EwNTc4NDY3ZjA5ODBhN2YzNjBiIiwidGFnIjoiIn0%3D; lmslocal_session=eyJpdiI6IjdndDQyVGg3Vm5IcEQ1VnFhYTE5eUE9PSIsInZhbHVlIjoiY3pkL3R2UDFzUElNNTFaT0ozQjczblFxY01icE5OK1UvRWxra3lwRS9Lajd3UTdER1hCUi8xMDU1eGRKS2lSaUsvdC9GK0dRWTV5SlFpL05jZnFabnp5eWVWdFEzK0xzcW96Q0x2MDdxMkhiU29JWTJmeDMzSTN2cUJ5cnJpbGUiLCJtYWMiOiIxOWQ5ZTcxMWU0MTYxZTdiNzMzMjQzMmNiNjFhMGExZjMzM2U4MjgxZTg0YmEwYWY5MzI3NTUzNmQ5NmQ4YTY2IiwidGFnIjoiIn0%3D",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "0",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{{csrf-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "jlangosh@example.org",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:52443/auth/logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "52443",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "apilink",
+			"value": "https://dev.thelukas.co.uk/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "2|3zJ24qXJUMHWSz29wga7Rol6KDa0LeDApiN0I1Qhc9b0b66d",
+			"type": "string"
+		}
+	]
+}

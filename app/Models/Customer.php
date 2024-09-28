@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Casebook;
+use App\Models\Cashbook;
 
 class Customer extends Model
 {
@@ -12,8 +12,8 @@ class Customer extends Model
 
     protected $fillable = ['name', 'mail', 'phone', 'address', 'credit_balance'];
 
-    public function casebooks()
+    public function cashbooks()
     {
-        return $this->hasMany(Casebook::class);
+        return $this->hasMany(Cashbook::class);
     }
 }
