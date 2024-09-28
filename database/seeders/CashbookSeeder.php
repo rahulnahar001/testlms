@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Customer;
 use App\Models\User;
-use App\Models\Casebook;
+use App\Models\Cashbook;
 use Illuminate\Database\Seeder;
 use Carbon\CarbonPeriod;
 
-class CasebookSeeder extends Seeder
+class CashbookSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -18,7 +18,7 @@ class CasebookSeeder extends Seeder
     {
         User::factory(5)->has(
             Customer::factory(10)->has(
-               Casebook::factory(20)
+               Cashbook::factory(20)
             )
         )->create();
     }
