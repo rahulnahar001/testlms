@@ -35,7 +35,7 @@ class CustomerController extends Controller
     public function show($id)
     {
 
-        $customer = Customer::with('cahebooks')->findOrFail($id);
+        $customer = Customer::with('cashbooks')->findOrFail($id);
 
         return response()->json($customer);
         return CustomerResource::make($customer);

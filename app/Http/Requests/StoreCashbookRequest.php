@@ -11,7 +11,7 @@ class StoreCashbookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,6 +22,8 @@ class StoreCashbookRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id' => 'required|numeric',
+            'customer_id' => 'required|numeric',
             'note' => 'required|string|max:255',
             'credit_type' => 'required',
             'credit_balance' => 'required|numeric'

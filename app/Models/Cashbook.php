@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Customer;
 
+
 class Cashbook extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['note', 'credit_balance', 'credit_type'];
+    protected $fillable = ['user_id', 'customer_id','note', 'credit_balance', 'credit_type'];
 
     public function customer()
     {
