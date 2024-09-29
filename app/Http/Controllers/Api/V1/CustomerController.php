@@ -38,7 +38,6 @@ class CustomerController extends Controller
         $customer = Customer::with('cashbooks')->findOrFail($id);
 
         return response()->json($customer);
-        return CustomerResource::make($customer);
     }
 
     /**

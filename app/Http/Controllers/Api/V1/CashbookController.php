@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Cashbook;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCashbookRequest;
 use App\Http\Requests\UpdateCashbookRequest;
@@ -25,40 +26,55 @@ class CashbookController extends Controller
      */
     public function store(StoreCashbookRequest $request)
     {
-        $Cashbook = Cashbook::create($request->validated());
+        try {
+          $cashbook = Cashbook::create($request->validated());
+          $id = $cashbook->customer_id;
+          $customer = Customer::findOrFail($id);
+          $customerWithCashbook = Customer::with('cashbooks')->findOrFail($id);
+          $cashbooks = $customerWithCashbook->cashbooks;
+          $balances = [];
+          foreach ($cashbooks as $cashbook) {
+            $transactionAmount = ($cashbook->credit_type) ? $cashbook->credit_balance : '-' . $cashbook->credit_balance;
+            $balances[] =  $transactionAmount;
+          }
+          $customer->credit_balance = array_sum($balances);
+          $customer->save();
+        } catch (\Exception $e) {
+            throw new HttpException(500, $e->getMessage());
+        }
 
-        return CashbookResource::make($Cashbook);
+        return CashbookResource::make($cashbook);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Cashbook $Cashbook)
+    public function show(Cashbook $cashbook)
     {
-        return CashbookResource::make($Cashbook);
+        return CashbookResource::make($cashbook);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreCashbookRequest $request, Cashbook $Cashbook)
+    public function update(StoreCashbookRequest $request, Cashbook $cashbook)
     {
 
         try {
-            $Cashbook->update($request->validated());
+            $cashbook->update($request->validated());
         } catch (\Exception $e) {
             throw new HttpException(500, $e->getMessage());
         }
 
-        return CashbookResource::make($Cashbook);
+        return CashbookResource::make($cashbook);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cashbook $Cashbook)
+    public function destroy(Cashbook $cashbook)
     {
-        $Cashbook->delete();
+        $cashbook->delete();
 
         return response()->noContent();
     }
